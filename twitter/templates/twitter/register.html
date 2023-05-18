@@ -1,0 +1,44 @@
+{% extends 'twitter/layout.html' %}
+
+{% block content %}
+<body class="login-page">
+    <div class="twitter-login-box">
+        <header>
+            <img src="../static/img/lnulogo2.png"  alt="twitter logo">
+            <h1>Реєстрація</h1>
+        </header>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-wrapper">
+                <label for="user-name-id">Ім'я</label>
+                {{ form.first_name }}
+            </div>
+            <div class="input-wrapper">
+                <label for="user-name-id">Ім'я користувача</label>
+                {{ form.username }}
+            </div>
+            <div class="input-wrapper">
+                <label for="user-name-id">Електронна пошта</label>
+                {{ form.email }}
+            </div>
+
+            <div class="input-wrapper">
+                <label for="password-id">Пароль</label>
+                {{ form.password1 }}
+            </div>
+            <div class="input-wrapper">
+                <label for="password-id">Підтвердьте пароль</label>
+                {{ form.password2 }}
+            </div>
+
+            <button class="twitter-btn">Зареєструвати</button>
+        </form>
+
+        <div class="footer">
+            <a href="{% url 'logout' %}">У вас є обліковий запис? Увійдіть</a>
+        </div>
+
+    </div>
+
+{% endblock content %}
